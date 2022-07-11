@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../header/header";
-import SearchResult from "..";
+// import SearchResult from "..";
 // import "./homepage.css"
 // import SearchBar from "../../SearchBar";
 // import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ export default function SearchResultPage() {
   return (
     <div>
       <Header />
-      <SearchResult />
+      {/* <SearchResult /> */}
     </div>
   );
 }
