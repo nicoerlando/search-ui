@@ -1,0 +1,35 @@
+.big-result{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-result{
+    width: 70vw;
+    margin: 25px 50px 0 50px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.more-information{
+    width: 20vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+/* 
+.title{
+    text-align: left;
+}
+
+.source{
+    text-align: left;
+}
+
+.content{
+    text-align: left;
+} */
