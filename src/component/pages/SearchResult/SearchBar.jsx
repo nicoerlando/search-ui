@@ -38,15 +38,15 @@ class SearchBar extends React.Component {
       }else{
         alert("something is wrong")
       }
-    }).then(data => {
-      console.log(data)
-      this.props.setResults(data)
+    }).then(newResults => {
+      console.log(newResults)
+      this.props.setState({data: newResults})
     })
     this.navigate('/result');
   };
 
   render() {
-    return (<form onSubmit={this.handleSubmit}>
+    return (<form onSubmit={() => {this.handleSubmit(); this.props.setResult();}}>
       <input
         type="text"
         id="question"
