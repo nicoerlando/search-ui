@@ -12,10 +12,11 @@ class SearchResultPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { results: [] };
+    this.setResults = this.setResults.bind(this)
   }
 
   setResults(newResults) {
-    this.setResults(newResults);
+    this.setState({results: newResults})
   }
 
   render() {
