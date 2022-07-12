@@ -10,7 +10,6 @@ class Header extends React.Component {
     super(props);
   }
 
-
   render() {
     return (
       <header className={"header"}>
@@ -21,13 +20,16 @@ class Header extends React.Component {
             </a>
           </Link>
         </div>
-        <SearchBar setResults={this.props.setResults} className={"search-bar"} />
+        <SearchBar
+          setResults={this.props.setResults}
+          className={"search-bar"}
+        />
         <div>
           {UserProfileData.map((UserData) => (
             <div className={"profile"}>
               <div className={"username"}>
                 <div>{UserData.userName} </div>
-                <div> {UserData.division} </div>
+                <div> [{UserData.division}] </div>
               </div>
               <div>
                 <img
@@ -44,4 +46,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header
+export default Header;

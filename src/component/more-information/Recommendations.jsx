@@ -5,7 +5,7 @@ import { RecommendationsData } from "./RecommendationsData";
 export default function Recommendations({}) {
   return (
     <div>
-      <h4> Related Topics </h4>
+      <h4> People Also Search For </h4>
       <div className={"content"}>
         {RecommendationsData.map((queries) => (
           <div>

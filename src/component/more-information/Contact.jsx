@@ -14,6 +14,8 @@ export default function Contact({}) {
               alt="PersonPicture"
               className={"picture"}
             ></img>
+            <div>{person.fullName} </div>
+            <div>[{person.division}] </div>
           </div>
         ))}
       </div>
