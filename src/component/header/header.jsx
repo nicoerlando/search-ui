@@ -8,13 +8,12 @@ import { UserProfileData } from "./UserProfileData";
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.SearchBarRef = React.createRef();
   }
 
 
   render() {
     return (
-      <header ref={this.SearchBarRef} className={"header"}>
+      <header className={"header"}>
         <div>
           <Link to="/">
             <a>
@@ -22,7 +21,7 @@ class Header extends React.Component {
             </a>
           </Link>
         </div>
-        <SearchBar className={"search-bar"} />
+        <SearchBar setResults={this.props.setResults} className={"search-bar"} />
         <div>
           {UserProfileData.map((UserData) => (
             <div className={"profile"}>

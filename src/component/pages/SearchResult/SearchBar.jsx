@@ -7,7 +7,7 @@ import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: '', data: ''};
+    this.state = {value: '', data: []};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -23,18 +23,24 @@ class SearchBar extends React.Component {
   handleSubmit (event) {
     event.preventDefault();
 
+    console.log(this.state.value)
     // 👇️ redirect to /contacts
-    const requestOptions = {
+    fetch(this.url_lambda, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: 'React POST Request Example' })
-    };
-    fetch(this.url_lambda, requestOptions)
-    .then(response => {
-      const data = response.json()
-      this.setState({data: data})
+      body: JSON.stringify({ 'question': this.state.value})
+    }).then(response => {
+      console.log(response.status)
+      if(response.ok){
+        const data = response.json()
+        // this.setState({data: data})
+        return data
+        // return response.json()
+      }else{
+        alert("something is wrong")
+      }
+    }).then(data => {
       console.log(data)
-      // return response.json()
+      this.props.setResults(data)
     })
     this.navigate('/result');
   };

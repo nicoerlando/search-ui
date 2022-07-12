@@ -6,20 +6,25 @@ import Contact from "../../more-information/Contact";
 import GitHub from "../../more-information/GitHub";
 import Recommendations from "../../more-information/Recommendations";
 import "./SearchResult.css";
+import { useState } from "react";
 
 class SearchResultPage extends React.Component {
   constructor(props) {
     super(props);
-    this.headerRef = React.createRef();
+    this.state = {results: []}
+  }
+
+  setResults(newResults) {
+    this.setResults(newResults)
   }
 
   render() {
     return (
       <div>
-        <Header ref={this.headerRef}/>
+        <Header setResults={this.setResults}/>
         <div className={"big-result"}>
           <div className={"search-result"}>
-            {resultData.map((result, i) => (
+            {this.state.results.map((result, i) => (
               <SearchResult
                 index={i + 1}
                 title={result.title}
