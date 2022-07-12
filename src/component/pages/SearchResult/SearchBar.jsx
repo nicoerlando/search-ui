@@ -46,7 +46,7 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    return (<form class="searchbox" action="http://thecodeblock.com"onSubmit={this.handleSubmit}>
+    return (<form class="searchbox" action="http://thecodeblock.com"onSubmit={() => {this.handleSubmit(); this.props.setResults();}}>
     <input
       type="text"
       id="question"
