@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Link, Routes, Route, useNavigate} from 'react-router-dom';
-
+import "./SearchBar.css";
 
 
 
@@ -46,17 +46,18 @@ class SearchBar extends React.Component {
   };
 
   render() {
-    return (<form onSubmit={() => {this.handleSubmit(); this.props.setResult();}}>
-      <input
-        type="text"
-        id="question"
-        placeholder="search documentations here..."
-        name="s"
-        value={this.state.value} 
-        onChange={this.handleChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+    return (<form class="searchbox" action="http://thecodeblock.com"onSubmit={this.handleSubmit}>
+    <input
+      type="text"
+      id="question"
+      placeholder="Search"
+      name="s"
+      class="searchTerm"
+      value={this.state.value} 
+      onChange={this.handleChange}
+    />
+    <button class="searchButton" type="submit"> &nbsp; </button>
+  </form>
     )
   }
 };
