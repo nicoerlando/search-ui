@@ -12,17 +12,17 @@ class SearchResultPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { results: [] };
-    this.setResults = this.setResultsOnPage.bind(this)
+    //this.setResults = this.setResultsOnPage.bind(this)
   }
 
-  setResultsOnPage(newResults) {
+  setResultsOnPage=(newResults)=> {
     this.setState({results: newResults})
   }
 
   render() {
     return (
       <div>
-        <Header setResults={this.setResultsOnPage} />
+        <Header setResultsOnPage={this.setResultsOnPage} />
         <div className={"big-result"}>
           <div className={"search-result"}>
             {this.state.results.map((result, i) => (

@@ -7,7 +7,7 @@ import "./SearchBar.css";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.setResults)
+    console.log(this.props.setResultsOnHeader)
     this.state = {value: '', data: []};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,30 +25,33 @@ class SearchBar extends React.Component {
   handleSubmit (event) {
     //event.preventDefault();
 
-    console.log(this.state.value)
+    console.log(this.state.value);
     // 👇️ redirect to /contacts
     fetch(this.url_lambda, {
-      method: 'POST',
-      body: JSON.stringify({ 'question': this.state.value})
-    }).then(response => {
-      console.log(response.status)
-      if(response.ok){
-        const data = response.json()
-        // this.setState({data: data})
-        return data
-        // return response.json()
-      }else{
-        alert("something is wrong")
-      }
-    }).then(newResults => {
-      console.log(newResults)
-      this.setState({data: newResults})
+      method: "POST",
+      body: JSON.stringify({ question: this.state.value }),
     })
-    this.navigate('/result');
-  };
+      .then((response) => {
+        console.log(response.status);
+        if (response.ok) {
+          const data = response.json();
+          // this.setState({data: data})
+          return data;
+          // return response.json()
+        } else {
+          alert("something is wrong");
+        }
+      })
+      .then((newResults) => {
+        console.log(newResults);
+        this.setState({ data: newResults });
+      });
+    this.navigate("/result");
+  }
 
   render() {
-    return (<form className="searchbox" onSubmit={() => {this.handleSubmit(); this.props.setResults(this.state.data);}}>
+
+    return (<form className="searchbox" onSubmit={() => {this.handleSubmit(); this.props.setResultsOnHeader(this.state.data);}}>
     <input
       type="text"
       id="question"
@@ -62,9 +65,9 @@ class SearchBar extends React.Component {
   </form>
     )
   }
-};
+}
 
-export default function(props) {
+export default function (props) {
   const navigate = useNavigate();
-  return <SearchBar {...props} navigate={navigate}></SearchBar>
-};
+  return <SearchBar {...props} navigate={navigate}></SearchBar>;
+}

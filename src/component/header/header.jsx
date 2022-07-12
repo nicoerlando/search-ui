@@ -8,7 +8,7 @@ import { UserProfileData } from "./UserProfileData";
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.setResults)
+    //console.log(this.props.setResults)
   }
 
   render() {
@@ -22,7 +22,7 @@ class Header extends React.Component {
           </Link>
         </div>
         <SearchBar
-          setResults={this.props.setResults}
+          setResultsOnHeader={this.props.setResultsOnPage}
           className={"search-bar"}
         />
         <div>
