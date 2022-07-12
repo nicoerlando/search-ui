@@ -7,21 +7,23 @@ import "./SearchBar.css";
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.setResults)
     this.state = {value: '', data: []};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.url_test = 'https://reqres.in/api/posts'
-    this.url_lambda = 'https://qv5krif365.execute-api.ap-southeast-1.amazonaws.com/dev/search-query-tagger-lambda'
+    this.url_lambda = 'https://qv5krif365.execute-api.ap-southeast-1.amazonaws.com/dev/jy-test-neptune'
     this.navigate = props.navigate;
   }
 
   handleChange (event) {
+    console.log(event.target.value)
     this.setState({value: event.target.value});
   }
 
   handleSubmit (event) {
-    event.preventDefault();
+    //event.preventDefault();
 
     console.log(this.state.value)
     // 👇️ redirect to /contacts
@@ -40,23 +42,23 @@ class SearchBar extends React.Component {
       }
     }).then(newResults => {
       console.log(newResults)
-      this.props.setState({data: newResults})
+      this.setState({data: newResults})
     })
     this.navigate('/result');
   };
 
   render() {
-    return (<form class="searchbox" onSubmit={() => {this.handleSubmit(); this.props.setResults();}}>
+    return (<form className="searchbox" onSubmit={() => {this.handleSubmit(); this.props.setResults(this.state.data);}}>
     <input
       type="text"
       id="question"
       placeholder="Search"
       name="s"
-      class="searchTerm"
+      className="searchTerm"
       value={this.state.value} 
       onChange={this.handleChange}
     />
-    <button class="searchButton" type="submit"> &nbsp; </button>
+    <button className="searchButton" type="submit"> &nbsp; </button>
   </form>
     )
   }
