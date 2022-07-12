@@ -1,4 +1,4 @@
-import "./Contact.css";
+import "./more-information.css";
 import React from "react";
 import { ContactData } from "./ContactData";
 
@@ -12,7 +12,7 @@ export default function Contact({}) {
             <img
               src={person.userPicture}
               alt="PersonPicture"
-              className={"person-profile-pic"}
+              className={"picture"}
             ></img>
           </div>
         ))}

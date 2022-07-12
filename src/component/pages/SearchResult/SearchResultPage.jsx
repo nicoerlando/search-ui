@@ -4,6 +4,7 @@ import SearchResult from "./SearchResult";
 import { resultData } from "./SearchResultData";
 import Contact from "../../more-information/Contact";
 import GitHub from "../../more-information/GitHub";
+import Recommendations from "../../more-information/Recommendations";
 import "./SearchResult.css";
 
 export default function SearchResultPage() {
@@ -24,7 +25,8 @@ export default function SearchResultPage() {
         </div>
         <div className={"more-information"}>
           <Contact />
-          {/* <GitHub /> */}
+          <GitHub />
+          <Recommendations />
         </div>
       </div>
     </div>
