@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
+import "./SearchBar.css";
+
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -46,6 +49,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     return (
       <form
         onSubmit={() => {
@@ -64,6 +68,21 @@ class SearchBar extends React.Component {
         <button type="submit">Search</button>
       </form>
     );
+=======
+    return (<form class="searchbox" onSubmit={() => {this.handleSubmit(); this.props.setResults();}}>
+    <input
+      type="text"
+      id="question"
+      placeholder="Search"
+      name="s"
+      class="searchTerm"
+      value={this.state.value} 
+      onChange={this.handleChange}
+    />
+    <button class="searchButton" type="submit"> &nbsp; </button>
+  </form>
+    )
+>>>>>>> 4dccc1d00c2022d6a3801f864d590d22e31eef47
   }
 }
 
