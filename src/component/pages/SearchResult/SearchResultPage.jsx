@@ -5,6 +5,7 @@ import { resultData } from "./SearchResultData";
 import Contact from "../../more-information/Contact";
 import GitHub from "../../more-information/GitHub";
 import Recommendations from "../../more-information/Recommendations";
+import Filter from "../../checkbox/filter";
 import "./SearchResult.css";
 
 class SearchResultPage extends React.Component {
@@ -16,8 +17,11 @@ class SearchResultPage extends React.Component {
   render() {
     return (
       <div>
-        <Header ref={this.headerRef}/>
+        <Header ref={this.headerRef} />
         <div className={"big-result"}>
+          <div>
+            <Filter />
+          </div>
           <div className={"search-result"}>
             {resultData.map((result, i) => (
               <SearchResult
@@ -37,8 +41,7 @@ class SearchResultPage extends React.Component {
         </div>
       </div>
     );
-
   }
 }
 
-export default SearchResultPage
+export default SearchResultPage;
